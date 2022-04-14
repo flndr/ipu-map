@@ -1,0 +1,15 @@
+
+html,
+body,
+#root {
+    height : 100%;
+
+}
+
+body {
+    margin                  : 0;
+    font-family             : 'Fira Code Regular', 'Source Code Pro', source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+    -webkit-font-smoothing  : antialiased;
+    -moz-osx-font-smoothing : grayscale;
+}
+
