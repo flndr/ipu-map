@@ -22,11 +22,11 @@ const DragArea = styled.div`
 export const AdminPage = observer( () => {
     
     return <Container>
-        <Uploader
-            draggable={ true }
-            name={ 'jsonfile' }
-            multiple={ false }
-            action={ env.apiBaseUrl + 'map' }>
+        <Uploader fileListVisible={ false }
+                  draggable={ true }
+                  name={ 'excelfile' }
+                  multiple={ false }
+                  action={ env.apiBaseUrl + 'map' }>
             <DragArea>Select Excel-File</DragArea>
         </Uploader>
     </Container>
