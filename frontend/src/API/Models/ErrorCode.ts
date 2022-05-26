@@ -1,0 +1,10 @@
+export enum ErrorCode {
+    NO_FILE                = 'NO_FILE',
+    COULD_NOT_STORE        = 'COULD_NOT_STORE',
+    COULD_NOT_READ_XLS     = 'COULD_NOT_READ_XLS',
+    SHEET_NOT_FOUND        = 'SHEET_NOT_FOUND',
+    XLS_NO_DATA_FOUND      = 'XLS_NO_DATA_FOUND',
+    COULD_NOT_PARSE        = 'COULD_NOT_PARSE',
+    COULD_NOT_DELETE       = 'COULD_NOT_DELETE',
+    COULD_NOT_EXTRACT_JSON = 'COULD_NOT_EXTRACT_JSON',
+}

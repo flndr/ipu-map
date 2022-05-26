@@ -19,7 +19,7 @@ export class GeocodeService {
                 person.plz,
                 person.ort,
                 person.strasse
-            ] );
+            ].filter( p => !!p && p !== '' ) );
             if ( position ) {
                 locatedPersons.push( {
                     ...person,

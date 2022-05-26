@@ -30,7 +30,7 @@ export class GeocodeApiService {
         
         // TODO correct error handling
         
-        if ( positions && Array.isArray( positions ) && positions.length === 1 ) {
+        if ( positions && Array.isArray( positions ) && positions.length > 0 ) {
             return {
                 lat : positions[ 0 ].lat,
                 lon : positions[ 0 ].lon

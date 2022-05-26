@@ -1,11 +1,6 @@
-import { SaveDayRequest }  from 'API/Models/Resources/SaveDayRequest';
-import { SaveDayResponse } from 'API/Models/Resources/SaveDayResponse';
-import axios               from 'axios';
-import { Day }             from 'API/Models/Day';
-import { LoadDayResponse } from 'API/Models/Resources/LoadDayResponse';
-import { LoginRequest }    from 'API/Models/Resources/LoginRequest';
-import { LoginResponse }   from 'API/Models/Resources/LoginResponse';
-import { env }             from 'env';
+import { MapCache } from './Models/MapCache';
+import axios        from 'axios';
+import { env }      from 'env';
 
 class ApiError extends Error {
     
@@ -31,17 +26,17 @@ class ApiService {
         this.token = t;
     }
     
-    async loadDay( date : string ) {
-        return this.get<LoadDayResponse>( '/day/' + date );
+    async loadMap() {
+        return this.get<MapCache>( 'map' );
     }
     
-    async saveDay( day : Day ) {
-        return this.post<SaveDayRequest, SaveDayResponse>( '/day', day );
-    }
+    //async setMap( day : Day ) {
+    //    return this.post( 'map', day );
+    //}
     
-    async login( request : LoginRequest ) {
-        return this.post<LoginRequest, LoginResponse>( '/login', request );
-    }
+    //async login( request : LoginRequest ) {
+    //    return this.post<LoginRequest, LoginResponse>( '/login', request );
+    //}
     
     private async post<I, O>( url : string, request : I ) : Promise<O> {
         return this.request( 'POST', url, request );

@@ -1,17 +1,14 @@
-import React            from 'react';
-import { useRoute }     from 'react-router5';
-import { useAuthStore } from 'Stores/AuthStore';
+import React        from 'react';
+import { useRoute } from 'react-router5';
 
-import { AuthStoreProvider }  from 'Stores/AuthStore';
-import { AdminPage }          from 'Pages/AdminPage';
-import { LoginPage }          from 'Pages/LoginPage';
-import { MapPage }            from 'Pages/MapPage';
-import { routes }             from 'routes';
+import { AdminPage }        from 'Pages/AdminPage';
+import { useMount }         from 'react-use';
+import { routes }           from 'routes';
+import { useMapStore }      from 'Stores/MapStore';
+import { MapStoreProvider } from 'Stores/MapStore';
 
 const pages = {
-    [ routes.admin.name ] : <AdminPage/>,
-    [ routes.login.name ] : <LoginPage/>,
-    [ routes.map.name ]   : <MapPage/>,
+    [ routes.home.name ] : <AdminPage/>,
 }
 
 const PageSwitch = () => {
@@ -23,14 +20,14 @@ const PageSwitch = () => {
 
 const App = () => {
     
-    console.log( 'App created.' );
+    const mapStore = useMapStore();
     
-    const authStore  = useAuthStore();
+    useMount( () => mapStore.loadMap() );
     
     return <>
-        <AuthStoreProvider store={ authStore }>
+        <MapStoreProvider store={ mapStore }>
             <PageSwitch/>
-        </AuthStoreProvider>
+        </MapStoreProvider>
     </>
 }
 
